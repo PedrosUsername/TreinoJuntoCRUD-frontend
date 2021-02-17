@@ -1,0 +1,17 @@
+<form style="margin-top: -6vh">
+    <fieldset>
+        <label for="registration-usuario">Usuario</label>
+        <input type="text" id="registration-usuario" [formControl]="usuario" placeholder="Silva" />
+
+        <label for="registration-senha">Senha</label>
+        <input type="password" id="registration-senha" [formControl]="senha" placeholder="*******" />
+
+        <label for="registration-cep">CEP</label>
+        <input type="text" id="registration-cep" [formControl]="cep" placeholder="1234-567" />
+
+        <label for="registration-cidade">Cidade</label>
+        <input type="text" id="registration-cidade" [formControl]="cidade" placeholder="Brasília" />
+        <br>
+        <button type="button" (click)="addCustomer()">Registrar</button>
+    </fieldset>
+</form>
