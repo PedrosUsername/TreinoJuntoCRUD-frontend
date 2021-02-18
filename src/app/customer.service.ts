@@ -5,7 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class CustomerService {
   
+  counter = 0;
   customers = Array<{
+    id: number,
     usuario: string,
     senha: string,
     cep: string,
@@ -14,15 +16,19 @@ export class CustomerService {
 
   addCustomer( customer: any ) {
     this.customers.push( customer );
+    this.counter += 1;
   }
 
+  getCount() {
+    return this.counter;
+  }
   getCustomers() {
     return this.customers;
   }
 
-  delCustomer( nome: string ) {
-    this.customers.forEach(( customer, index )=>{
-      if( customer.usuario == nome ) this.customers.splice( index, 1 );
+  delCustomer( customer: number ) {
+    this.customers.forEach(( element, index )=>{
+      if( element.id == customer ) this.customers.splice( index, 1 );
    });
   }
 

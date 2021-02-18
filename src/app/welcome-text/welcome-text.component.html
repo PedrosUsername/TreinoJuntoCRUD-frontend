@@ -1,13 +1,20 @@
 <div *ngIf="customers.length > 0">
 
-
-    <h3>Clientes Registrados</h3>
-
     <div *ngFor="let customer of customers">
+
         <hr>
-        <h3>
-            <a (click)="delCustomer( customer.usuario )">DELETE </a> {{ customer.usuario }}
-        </h3>
+
+        <ul style="display: flex; list-style-type: none; justify-content: space-between;">
+            <li><h3>{{ customer.usuario }}</h3></li>
+            <li><ul style="display: flex; list-style-type: none; justify-content: space-between;">
+                <li><h3><a [routerLink]="['/ler', customer.id]">Ler</a></h3></li>
+                <li><div style="width: 14px;"></div></li>
+                <!--<li><h3><a (click)="delCustomer( customer.id )">Editar</a></h3></li>
+                <li><div style="width: 14px;"></div></li>-->
+                <li><h3><a (click)="delCustomer( customer.id )">Excluir</a></h3></li>
+                <li><div style="width: 14px;"></div></li>
+            </ul></li>
+        </ul>
     </div>
 
 </div>

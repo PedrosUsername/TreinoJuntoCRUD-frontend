@@ -9,6 +9,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { WelcomeTextComponent } from './welcome-text/welcome-text.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ReadComponent } from './read/read.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginFormComponent,
     WelcomeTextComponent,
     RegistrationFormComponent,
+    ReadComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       { path: "", component: WelcomeTextComponent },
       { path: "login", component: LoginFormComponent },
       { path: "registration", component: RegistrationFormComponent },
+      { path: "ler/:customer", component: ReadComponent}
     ])
   ],
   providers: [],

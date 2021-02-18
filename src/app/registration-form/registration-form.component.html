@@ -12,6 +12,6 @@
         <label for="registration-cidade">Cidade</label>
         <input type="text" id="registration-cidade" [formControl]="cidade" placeholder="Brasília" />
         <br>
-        <button type="button" (click)="addCustomer()">Registrar</button>
+        <button type="button" (click)="addCustomer()" [routerLink]="['/']">Registrar</button>
     </fieldset>
 </form>

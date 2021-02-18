@@ -15,8 +15,8 @@ export class WelcomeTextComponent implements OnInit {
   )
   { }
 
-  delCustomer( nome: string ){
-    this.customerService.delCustomer( nome );
+  delCustomer( customer: number ){
+    this.customerService.delCustomer( customer );
     window.alert("Usuario excluido");
   }
 
