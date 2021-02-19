@@ -10,6 +10,8 @@ import { WelcomeTextComponent } from './welcome-text/welcome-text.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReadComponent } from './read/read.component';
+import { HttpClientModule } from '@angular/common/http';
+import { EditionComponent } from './edition/edition.component';
 
 @NgModule({
   declarations: [
@@ -19,16 +21,19 @@ import { ReadComponent } from './read/read.component';
     WelcomeTextComponent,
     RegistrationFormComponent,
     ReadComponent,
+    EditionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: "", component: WelcomeTextComponent },
       { path: "login", component: LoginFormComponent },
       { path: "registration", component: RegistrationFormComponent },
-      { path: "ler/:customer", component: ReadComponent}
+      { path: "ler/:customer", component: ReadComponent},
+      { path: "editar/:customer", component: EditionComponent}
     ])
   ],
   providers: [],

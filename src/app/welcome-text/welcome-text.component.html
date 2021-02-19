@@ -1,20 +1,19 @@
-<div *ngIf="customers.length > 0">
+<div *ngFor="let customer of customers | async">
 
-    <div *ngFor="let customer of customers">
+    <hr>
 
-        <hr>
-
-        <ul style="display: flex; list-style-type: none; justify-content: space-between;">
-            <li><h3>{{ customer.usuario }}</h3></li>
-            <li><ul style="display: flex; list-style-type: none; justify-content: space-between;">
-                <li><h3><a [routerLink]="['/ler', customer.id]">Ler</a></h3></li>
+    <ul style="display: flex; list-style-type: none; justify-content: space-between;">
+        <li><h3>{{ customer.usuario }}</h3></li>
+        <li>
+            <ul style="display: flex; list-style-type: none; justify-content: space-between;">
+                <li><h3><a (click)="readCustomer( customer )">Ler</a></h3></li>
                 <li><div style="width: 14px;"></div></li>
-                <!--<li><h3><a (click)="delCustomer( customer.id )">Editar</a></h3></li>
-                <li><div style="width: 14px;"></div></li>-->
+                <li><h3><a [routerLink]="['/editar', customer.id]">Editar</a></h3></li>
+                <li><div style="width: 14px;"></div></li>
                 <li><h3><a (click)="delCustomer( customer.id )">Excluir</a></h3></li>
                 <li><div style="width: 14px;"></div></li>
-            </ul></li>
-        </ul>
-    </div>
-
+            </ul>
+        </li>
+    </ul>
 </div>
+

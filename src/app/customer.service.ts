@@ -1,35 +1,38 @@
 import { Injectable } from '@angular/core';
+import { ApiService } from './api.service';
+import { Customer } from  './customer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
-  
-  counter = 0;
-  customers = Array<{
-    id: number,
-    usuario: string,
-    senha: string,
-    cep: string,
-    cidade: string
-  }>()
+  constructor(private apiService: ApiService) {}
+
+  customers = Array<Customer>();
 
   addCustomer( customer: any ) {
-    this.customers.push( customer );
-    this.counter += 1;
+    this.apiService.createCustomer(customer).subscribe((customer: Customer)=>{
+      console.log("created, ", customer);
+    });
   }
 
-  getCount() {
-    return this.counter;
+  updateCustomer(customer: Customer) {
+    this.apiService.updateCustomer(customer).subscribe((cliente: Customer)=>{
+      console.log("Policy updated" , cliente);
+    });
   }
-  getCustomers() {
+
+  getCustomersFromApi() {
+    return this.apiService.readCustomers();
+  }
+  getCustomers(){
     return this.customers;
   }
 
   delCustomer( customer: number ) {
-    this.customers.forEach(( element, index )=>{
-      if( element.id == customer ) this.customers.splice( index, 1 );
-   });
+    this.apiService.deleteCustomer(customer).subscribe((cliente: Customer)=>{
+      console.log("Policy deleted, ", cliente);
+    });
   }
 
 }

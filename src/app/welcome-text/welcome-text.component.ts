@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../customer.service';
-import { customers2 } from '../customers2';
 
 @Component({
   selector: 'app-welcome-text',
@@ -8,8 +7,8 @@ import { customers2 } from '../customers2';
   styleUrls: ['./welcome-text.component.css']
 })
 export class WelcomeTextComponent implements OnInit {
-  customers = this.customerService.getCustomers();
-
+  customers = this.customerService.getCustomersFromApi();
+  
   constructor(
     private customerService: CustomerService
   )
@@ -18,9 +17,14 @@ export class WelcomeTextComponent implements OnInit {
   delCustomer( customer: number ){
     this.customerService.delCustomer( customer );
     window.alert("Usuario excluido");
+    this.customers = this.customerService.getCustomersFromApi();
   }
 
-  ngOnInit(): void {
+  readCustomer(customer: any){
+    var texto = "Usuario: " + customer.usuario + "\nSenha: " + customer.senha + "\nCep: " + customer.cep + "\nCidade: " + customer.cidade;
+    window.alert(texto);
   }
+
+  ngOnInit(): void {}
 
 }

@@ -21,7 +21,6 @@ export class RegistrationFormComponent implements OnInit {
 
   addCustomer( ) {
     var customer = {
-      id: this.customerService.getCount(),
       usuario: this.usuario.value,
       senha: this.senha.value,
       cep: this.cep.value,

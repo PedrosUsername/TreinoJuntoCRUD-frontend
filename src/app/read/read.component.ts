@@ -20,6 +20,7 @@ export class ReadComponent implements OnInit {
     const customerIdFromRoute = Number(routeParams.get('customer'));
 
     this.customer = this.customerService.getCustomers().find(customer => customer.id === customerIdFromRoute);
+    console.log('AAA, ', this.customer);
   }
 
 }
